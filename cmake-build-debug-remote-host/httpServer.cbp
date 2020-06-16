@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+   <FileVersion major="1" minor="6" />
+   <Project>
+      <Option title="httpServer" />
+      <Option makefile_is_custom="1" />
+      <Option compiler="gcc" />
+      <Option virtualFolders="CMake Files\;" />
+      <Build>
+      <Target title="all">
+         <Option working_dir="/home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 all" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="edit_cache">
+         <Option working_dir="/home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 edit_cache" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="rebuild_cache">
+         <Option working_dir="/home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 rebuild_cache" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="httpServer">
+         <Option output="/home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/httpServer" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 httpServer" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="httpServer/fast">
+         <Option output="/home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/httpServer" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 httpServer/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      </Build>
+      <Unit filename="/home/ubuntu/clionProject/httpServer/Epoll.cpp">
+         <Option target="httpServer"/>
+      </Unit>
+      <Unit filename="/home/ubuntu/clionProject/httpServer/Epoll.h">
+         <Option target="httpServer"/>
+      </Unit>
+      <Unit filename="/home/ubuntu/clionProject/httpServer/HttpData.cpp">
+         <Option target="httpServer"/>
+      </Unit>
+      <Unit filename="/home/ubuntu/clionProject/httpServer/HttpData.h">
+         <Option target="httpServer"/>
+      </Unit>
+      <Unit filename="/home/ubuntu/clionProject/httpServer/HttpParse.cpp">
+         <Option target="httpServer"/>
+      </Unit>
+      <Unit filename="/home/ubuntu/clionProject/httpServer/HttpParse.h">
+         <Option target="httpServer"/>
+      </Unit>
+      <Unit filename="/home/ubuntu/clionProject/httpServer/HttpRequest.cpp">
+         <Option target="httpServer"/>
+      </Unit>
+      <Unit filename="/home/ubuntu/clionProject/httpServer/HttpRequest.h">
+         <Option target="httpServer"/>
+      </Unit>
+      <Unit filename="/home/ubuntu/clionProject/httpServer/HttpResponse.cpp">
+         <Option target="httpServer"/>
+      </Unit>
+      <Unit filename="/home/ubuntu/clionProject/httpServer/HttpResponse.h">
+         <Option target="httpServer"/>
+      </Unit>
+      <Unit filename="/home/ubuntu/clionProject/httpServer/NonCopyable.h">
+         <Option target="httpServer"/>
+      </Unit>
+      <Unit filename="/home/ubuntu/clionProject/httpServer/Server.cpp">
+         <Option target="httpServer"/>
+      </Unit>
+      <Unit filename="/home/ubuntu/clionProject/httpServer/Server.h">
+         <Option target="httpServer"/>
+      </Unit>
+      <Unit filename="/home/ubuntu/clionProject/httpServer/Socket.cpp">
+         <Option target="httpServer"/>
+      </Unit>
+      <Unit filename="/home/ubuntu/clionProject/httpServer/Socket.h">
+         <Option target="httpServer"/>
+      </Unit>
+      <Unit filename="/home/ubuntu/clionProject/httpServer/ThreadPool.cpp">
+         <Option target="httpServer"/>
+      </Unit>
+      <Unit filename="/home/ubuntu/clionProject/httpServer/ThreadPool.h">
+         <Option target="httpServer"/>
+      </Unit>
+      <Unit filename="/home/ubuntu/clionProject/httpServer/Timer.cpp">
+         <Option target="httpServer"/>
+      </Unit>
+      <Unit filename="/home/ubuntu/clionProject/httpServer/Timer.h">
+         <Option target="httpServer"/>
+      </Unit>
+      <Unit filename="/home/ubuntu/clionProject/httpServer/Util.cpp">
+         <Option target="httpServer"/>
+      </Unit>
+      <Unit filename="/home/ubuntu/clionProject/httpServer/Util.h">
+         <Option target="httpServer"/>
+      </Unit>
+      <Unit filename="/home/ubuntu/clionProject/httpServer/main.cpp">
+         <Option target="httpServer"/>
+      </Unit>
+      <Unit filename="/home/ubuntu/clionProject/httpServer/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\" />
+      </Unit>
+   </Project>
+</CodeBlocks_project_file>
