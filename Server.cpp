@@ -56,11 +56,18 @@ extern std::string basePath;
 
 void HttpServer::run(int thread_num, int max_queue_size) {
     ThreadPool threadPool(thread_num,max_queue_size);
+
+    // 创建epoll实例和事件集合
     int epoll_fd = Epoll::init(1024);
+
+    // 监听文件描述符所映射的httpData
     std::shared_ptr<HttpData> httpData(new HttpData());
     httpData->epoll_fd = epoll_fd;
+
     serverSocket.epoll_fd = epoll_fd;
     __uint32_t event = (EPOLLIN | EPOLLET);
+
+    // 监听套接字描述符添加入epoll实例中
     Epoll::addfd(epoll_fd,serverSocket.listen_fd,event,httpData);
 
     while(true){
@@ -68,7 +75,7 @@ void HttpServer::run(int thread_num, int max_queue_size) {
         std::vector<std::shared_ptr<HttpData>> events = Epoll::poll(serverSocket,1024,-1);
 
         for(auto &request:events){
-            // bind使用,对象成员函数的指针时，必须要知道该指针属于哪个对象，因此第二个参数为对象的地址
+            // bind使用对象成员函数的指针时，必须要知道该指针属于哪个对象，因此第二个参数为对象的地址
             // 将对请求任务的相应工作添加到线程池中的线程中
             threadPool.append(request,std::bind(&HttpServer::do_request,this,std::placeholders::_1));
             std::cout<<"have a event"<<std::endl;
@@ -108,7 +115,8 @@ void HttpServer::do_request(std::shared_ptr<void> arg) {
         }
 
         else if(requestCode == HttpParse::GET_REQUEST){
-            std::unordered_map<HttpRequest::HTTP_HEADER, std::string, HttpRequest::EnumClassHash>::iterator it = httpData->request->headers.find(HttpRequest::Connection);
+//            std::unordered_map<HttpRequest::HTTP_HEADER, std::string, HttpRequest::EnumClassHash>::iterator it = httpData->request->headers.find(HttpRequest::Connection);
+            auto it = httpData->request->headers.find(HttpRequest::Connection);
             if(it != httpData->request->headers.end()){
                 if(it->second == "keep-alive"){
                     httpData->response->setKeepAlive(true);
@@ -119,10 +127,12 @@ void HttpServer::do_request(std::shared_ptr<void> arg) {
             }
             header(httpData);
             getMime(httpData);
-            FileState fileState = static_file(httpData,basePath.c_str());
+            FileState fileState = static_file(httpData);
+            //TODO 后期写入日志
             std::cout<<"--------fileState is:"<<fileState<<std::endl;
             send(httpData,fileState);
             std::cout<<"--------send success--------"<<std::endl;
+            // 需要keep-Alive的进行设置添加timeNode
             if(httpData->response->isKeepAlive()){
                 //TODO 不进行修改会怎样
                 Epoll::modfd(httpData->epoll_fd,httpData->clientSocket->fd,Epoll::DEFAULT_EVENTS,httpData);
@@ -187,7 +197,7 @@ void HttpServer::send(HttpServer::httpData_ptr httpData, HttpServer::FileState f
     }
     sprintf(header,"%sContent-length:%d\r\n\r\n",header,fileStat.st_size);
     ::send(httpData->clientSocket->fd,header,strlen(header),0);
-    // 通过存储映射向客户端发送数据
+    // 通过存储映射读取文件向客户端发送数据
     void *mapBuffer = mmap(NULL,fileStat.st_size,PROT_READ,MAP_PRIVATE,filefd,0);
     ::send(httpData->clientSocket->fd,mapBuffer,fileStat.st_size,0);
     munmap(mapBuffer,fileStat.st_size);
@@ -195,11 +205,12 @@ void HttpServer::send(HttpServer::httpData_ptr httpData, HttpServer::FileState f
     return;
 }
 
-HttpServer::FileState HttpServer::static_file(HttpServer::httpData_ptr httpData, const char *) {
+HttpServer::FileState HttpServer::static_file(HttpServer::httpData_ptr httpData) {
     struct stat fileStat;
     char file[basePath.size() + strlen(httpData->response->getFilePath().c_str()) + 1];
     strcpy(file,basePath.c_str());
     strcat(file,httpData->response->getFilePath().c_str());
+    // 没有指明访问资源或文件不存在
     if(httpData->response->getFilePath() == "/" || (stat(file,&fileStat) < 0)){
         httpData->response->setMimeType(MimeType("text/html"));
         if(httpData->response->getFilePath() == "/"){
@@ -229,9 +240,10 @@ void HttpServer::getMime(HttpServer::httpData_ptr httpData) {
     std::string filePath = httpData->request->url;
     std::string mime;
     int pos;
+    // 将所有参数删除
     if((pos = filePath.rfind('?')) != std::string::npos)
         filePath.erase(filePath.rfind('?'));
-
+    // 获取到访问资源的类型名
     if(filePath.rfind('.') != std::string::npos)
         mime = filePath.substr(filePath.rfind('.'));
 

@@ -9,9 +9,9 @@
 #include <zconf.h>
 #include "Util.h"
 
-void err_print(const string& errString){
-    std::cout << errString <<" in file <" << __FILE__ << "> "<< "at " << __LINE__ << std::endl;
-}
+//void err_print(const string& errString){
+//    std::cout << errString <<" in file <" << __FILE__ << "> "<< "at " << __LINE__ << std::endl;
+//}
 
 /*
  * 将fd设置为非阻塞式I/O
@@ -29,14 +29,14 @@ int setnonblocking(int fd){
 std::string &ltrim(string &str){
     if(str.empty())
         return str;
-    str.erase(0,str.find_first_of(" \t"));
+    str.erase(0,str.find_first_not_of(" \t"));
     return str;
 }
 
 std::string &rtrim(string &str){
     if(str.empty())
         return str;
-    str.erase(0,str.find_last_not_of(" \t"));
+    str.erase(str.find_last_not_of(" \t")+1);
     return str;
 }
 
@@ -63,13 +63,13 @@ void handle_for_sigpipe(){
 }
 
 // 对当前默认路径检查其有效性
-int check_base_path(char *basePath){
+int check_base_path(const string &basePath){
     struct stat file;
-    if(stat(basePath,&file) == -1){
+    if(stat(basePath.c_str(),&file) == -1){
         return -1;
     }
-    // 是文件夹或没有读的权利
-    if(S_ISDIR(file.st_mode) || !access(basePath,R_OK)){
+    // 不是文件夹或没有读的权利
+    if(!S_ISDIR(file.st_mode) || access(basePath.c_str(),R_OK) == -1){
         return -1;
     }
     return 0;

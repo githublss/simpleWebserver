@@ -33,7 +33,10 @@ public:
     // 关闭socket文件描述符
     void close();
 
-    // 包裹accept方法，传入客户端，并将accept函数创建返回的客户端套接字赋值给客户端，并对非阻塞的监听套接字进行逻辑处理判断
+    /*
+     * 包裹accept方法，传入客户端，并将accept函数创建返回的已连接套接字描述符赋值给客户端，
+     * 并对非阻塞的监听套接字进行逻辑处理判断，返回已连接套接字描述符
+     */
     int accept(ClientSocket &) const;
 
     sockaddr_in mAddr;      // 套接字地址

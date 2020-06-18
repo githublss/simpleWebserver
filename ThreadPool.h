@@ -33,26 +33,31 @@ struct ThreadTask {
 
 class ThreadPool{
 public:
+    // 完成对线程池中线程队列的初始化
     ThreadPool(int thread_s, int max_queue_s);
     ~ThreadPool();
-
+    // 将一个任务添加入任务队列中
     bool append(std::shared_ptr<void> arg, std::function<void(std::shared_ptr<void>)> fun);
     // 完成所有任务以后关闭线程池
     void shutdown(bool graceful);
 
 private:
+
     static void *worker(void *args);
+
+    // 线程池中线程的主方法
     void run();
+
     //TODO 使用库函数中的packaged_task
     using Task = std::function<void()>;
     std::mutex mutex_;  // 互斥体
-    std::condition_variable_any condition;
-    int thread_size;
-    int max_queue_size;
-    int started;
-    int shutdown_;
-    std::vector<std::thread> threads;
-    std::list<ThreadTask> request_queue;
+    std::condition_variable_any condition;      // 条件变量
+    int thread_size;                            // 线程数量
+    int max_queue_size;                         // 任务队列最大值
+    int started;                                // 开始标示
+    int shutdown_;                              // 关闭标示
+    std::vector<std::thread> threads;           // 线程队列
+    std::list<ThreadTask> request_queue;        // 任务队列
 };
 
 #endif //HTTPSERVER_THREADPOOL_H

@@ -10,6 +10,9 @@
 #include "Timer.h"
 #include "HttpRequest.h"
 #include "HttpResponse.h"
+/*
+ * 实现对一个请求的封装
+ */
 
 // 不声明会导致was not declared in this scope
 class TimerNode;

@@ -37,7 +37,7 @@ void daemon_run(){
     }
 }
 int main() {
-    int ThreadNumber = 4;   // 默认线程数
+    int ThreadNumber = 50;   // 默认线程数
     int port = 8080;          // 默认端口号
     std::string logPath = "./webserver.log";    // 默认日志路径
 
@@ -60,6 +60,8 @@ int main() {
     write(fd,buf,strlen(buf));
     close(fd);
 
+    if(check_base_path(basePath) < 0)
+        std::cout<<"设置的基本工作路径不正确,工作路径为绝对路径"<<endl;
     {
         std::cout<<"************webServer 配置信息************"<<std::endl;
         std::cout<<"端口："<<port<<std::endl;

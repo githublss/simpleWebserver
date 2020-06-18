@@ -6,7 +6,7 @@
 
 ThreadPool::ThreadPool(int thread_s, int max_queue_s):max_queue_size(max_queue_s),thread_size(thread_s),started(0),shutdown_(0){
     if(thread_s <= 0 || thread_s > MAX_THREAD_SIZE)
-        thread_s = 8;
+        thread_s = 4;
     if(max_queue_s <= 0 || max_queue_s > MAX_QUEUE_SIZE)
         max_queue_size = MAX_QUEUE_SIZE;
     threads.resize(thread_size);
@@ -52,6 +52,7 @@ void ThreadPool::shutdown(bool graceful) {
     }
 }
 
+
 //TODO 每个线程都使用run方法会不会有问题
 void *ThreadPool::worker(void *args) {
     auto *pool = static_cast<ThreadPool *>(args);
@@ -74,7 +75,7 @@ void ThreadPool::run() {
                 condition.wait(uniqueLock);
             if(shutdown_ == immediate_mode || (shutdown_ == graceful_mode && request_queue.empty()))
                 break;
-            // 先进先出
+            // 先进先出的方式从任务队列中取出任务
             threadTask = request_queue.front();
             request_queue.pop_front();
         }

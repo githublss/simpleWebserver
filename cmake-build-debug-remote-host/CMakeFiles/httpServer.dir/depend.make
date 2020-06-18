@@ -10,6 +10,7 @@ CMakeFiles/httpServer.dir/Epoll.cpp.o: ../Socket.h
 CMakeFiles/httpServer.dir/Epoll.cpp.o: ../Timer.h
 CMakeFiles/httpServer.dir/Epoll.cpp.o: ../Util.h
 
+CMakeFiles/httpServer.dir/HttpData.cpp.o: ../Epoll.h
 CMakeFiles/httpServer.dir/HttpData.cpp.o: ../HttpData.cpp
 CMakeFiles/httpServer.dir/HttpData.cpp.o: ../HttpData.h
 CMakeFiles/httpServer.dir/HttpData.cpp.o: ../HttpRequest.h
@@ -17,6 +18,23 @@ CMakeFiles/httpServer.dir/HttpData.cpp.o: ../HttpResponse.h
 CMakeFiles/httpServer.dir/HttpData.cpp.o: ../Socket.h
 CMakeFiles/httpServer.dir/HttpData.cpp.o: ../Timer.h
 CMakeFiles/httpServer.dir/HttpData.cpp.o: ../Util.h
+
+CMakeFiles/httpServer.dir/HttpParse.cpp.o: ../Epoll.h
+CMakeFiles/httpServer.dir/HttpParse.cpp.o: ../HttpData.h
+CMakeFiles/httpServer.dir/HttpParse.cpp.o: ../HttpParse.cpp
+CMakeFiles/httpServer.dir/HttpParse.cpp.o: ../HttpParse.h
+CMakeFiles/httpServer.dir/HttpParse.cpp.o: ../HttpRequest.h
+CMakeFiles/httpServer.dir/HttpParse.cpp.o: ../HttpResponse.h
+CMakeFiles/httpServer.dir/HttpParse.cpp.o: ../Socket.h
+CMakeFiles/httpServer.dir/HttpParse.cpp.o: ../Timer.h
+CMakeFiles/httpServer.dir/HttpParse.cpp.o: ../Util.h
+
+CMakeFiles/httpServer.dir/HttpRequest.cpp.o: ../HttpRequest.cpp
+CMakeFiles/httpServer.dir/HttpRequest.cpp.o: ../HttpRequest.h
+
+CMakeFiles/httpServer.dir/HttpResponse.cpp.o: ../HttpRequest.h
+CMakeFiles/httpServer.dir/HttpResponse.cpp.o: ../HttpResponse.cpp
+CMakeFiles/httpServer.dir/HttpResponse.cpp.o: ../HttpResponse.h
 
 CMakeFiles/httpServer.dir/Server.cpp.o: ../Epoll.h
 CMakeFiles/httpServer.dir/Server.cpp.o: ../HttpData.h
@@ -37,6 +55,7 @@ CMakeFiles/httpServer.dir/Socket.cpp.o: ../Util.h
 CMakeFiles/httpServer.dir/ThreadPool.cpp.o: ../ThreadPool.cpp
 CMakeFiles/httpServer.dir/ThreadPool.cpp.o: ../ThreadPool.h
 
+CMakeFiles/httpServer.dir/Timer.cpp.o: ../Epoll.h
 CMakeFiles/httpServer.dir/Timer.cpp.o: ../HttpData.h
 CMakeFiles/httpServer.dir/Timer.cpp.o: ../HttpRequest.h
 CMakeFiles/httpServer.dir/Timer.cpp.o: ../HttpResponse.h
@@ -48,6 +67,7 @@ CMakeFiles/httpServer.dir/Timer.cpp.o: ../Util.h
 CMakeFiles/httpServer.dir/Util.cpp.o: ../Util.cpp
 CMakeFiles/httpServer.dir/Util.cpp.o: ../Util.h
 
+CMakeFiles/httpServer.dir/main.cpp.o: ../Epoll.h
 CMakeFiles/httpServer.dir/main.cpp.o: ../HttpData.h
 CMakeFiles/httpServer.dir/main.cpp.o: ../HttpParse.h
 CMakeFiles/httpServer.dir/main.cpp.o: ../HttpRequest.h

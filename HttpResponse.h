@@ -88,12 +88,9 @@ private:
     HttpStatusCode statusCode;              // 状态码
     HttpRequest::HTTP_VERSION version;      // 版本信息
     std::string statusMsg;                  // 状态描述
-    bool keep_alive;
+    bool keep_alive;                        // 是否keep-alive
 
-
-private:
-    // 是否keep-alive
-    MimeType mimeType;                      // 响应的类型
+    MimeType mimeType;                      // 响应资源的类型
     const char *body;                       // 响应正文
     int contentLength;                      // 正文长度
     std::string filePath;                   // 响应文件路径

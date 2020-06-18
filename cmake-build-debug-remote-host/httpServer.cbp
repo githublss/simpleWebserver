@@ -150,6 +150,9 @@
       <Unit filename="/home/ubuntu/clionProject/httpServer/main.cpp">
          <Option target="httpServer"/>
       </Unit>
+      <Unit filename="/home/ubuntu/clionProject/httpServer/test.cpp">
+         <Option target="httpServer"/>
+      </Unit>
       <Unit filename="/home/ubuntu/clionProject/httpServer/CMakeLists.txt">
           <Option virtualFolder="CMake Files\" />
       </Unit>

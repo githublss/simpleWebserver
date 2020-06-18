@@ -42,9 +42,23 @@ HttpRequest.h
 HttpResponse.h
 /home/ubuntu/clionProject/httpServer/HttpResponse.h
 
+/home/ubuntu/clionProject/httpServer/HttpParse.cpp
+cstring
+-
+algorithm
+-
+unordered_map
+-
+HttpParse.h
+/home/ubuntu/clionProject/httpServer/HttpParse.h
+
 /home/ubuntu/clionProject/httpServer/HttpParse.h
 HttpData.h
 /home/ubuntu/clionProject/httpServer/HttpData.h
+HttpRequest.h
+/home/ubuntu/clionProject/httpServer/HttpRequest.h
+
+/home/ubuntu/clionProject/httpServer/HttpRequest.cpp
 HttpRequest.h
 /home/ubuntu/clionProject/httpServer/HttpRequest.h
 
@@ -53,13 +67,27 @@ unordered_map
 -
 string
 -
+iostream
+-
+
+/home/ubuntu/clionProject/httpServer/HttpResponse.cpp
+HttpResponse.h
+/home/ubuntu/clionProject/httpServer/HttpResponse.h
 
 /home/ubuntu/clionProject/httpServer/HttpResponse.h
 HttpRequest.h
 /home/ubuntu/clionProject/httpServer/HttpRequest.h
+unordered_map
+-
+string
+-
 
 /home/ubuntu/clionProject/httpServer/Server.cpp
 memory.h
+-
+sys/stat.h
+-
+sys/mman.h
 -
 Server.h
 /home/ubuntu/clionProject/httpServer/Server.h
@@ -121,6 +149,8 @@ future
 -
 
 /home/ubuntu/clionProject/httpServer/Timer.cpp
+sys/time.h
+-
 Timer.h
 /home/ubuntu/clionProject/httpServer/Timer.h
 
@@ -133,6 +163,8 @@ memory
 -
 HttpData.h
 /home/ubuntu/clionProject/httpServer/HttpData.h
+Epoll.h
+/home/ubuntu/clionProject/httpServer/Epoll.h
 
 /home/ubuntu/clionProject/httpServer/Util.cpp
 cstring

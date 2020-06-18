@@ -4,6 +4,7 @@
 
 #include <cstring>
 #include <algorithm>
+#include <unordered_map>
 #include "HttpParse.h"
 
 std::unordered_map<std::string, HttpRequest::HTTP_HEADER> HttpRequest::headerMap = {
@@ -145,6 +146,8 @@ HttpParse::HTTP_CODE HttpParse::parse_headers(char *line, HttpParse::PARSE_STATE
     std::string keys(key);
     std::transform(keys.begin(),keys.end(),keys.begin(),::toupper);
     std::string values(value);
+    // 测试打印所有头信息
+//    std::cout<<trim(keys)<<':'<<trim(values)<<endl;
     if((it = HttpRequest::headerMap.find(trim(keys))) != (HttpRequest::headerMap.end())){
         request.headers.insert(std::make_pair(it->second,trim(values)));
     } else{

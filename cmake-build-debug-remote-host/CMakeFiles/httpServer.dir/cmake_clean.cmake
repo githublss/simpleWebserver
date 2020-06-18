@@ -10,6 +10,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/httpServer.dir/HttpParse.cpp.o"
   "CMakeFiles/httpServer.dir/HttpRequest.cpp.o"
   "CMakeFiles/httpServer.dir/HttpResponse.cpp.o"
+  "CMakeFiles/httpServer.dir/test.cpp.o"
   "httpServer.pdb"
   "httpServer"
 )

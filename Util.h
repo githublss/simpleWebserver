@@ -27,6 +27,6 @@ int setnonblocking(int fd);
 void handle_for_sigpipe();
 
 // 对当前默认路径检查其有效性
-int check_base_path(char *basePath);
+int check_base_path(const string &basePath);
 
 #endif //HTTPSERVER_UTIL_H

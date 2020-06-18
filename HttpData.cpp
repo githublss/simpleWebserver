@@ -8,7 +8,7 @@ void HttpData::closeTimer() {
     // 首先判断Timer是否还在， 有可能已经超时释放
     if(timer.lock()){
         std::shared_ptr<TimerNode> tempTimer(timer.lock());
-        tempTimer->del();
+        tempTimer->setDeleted(true);
         // 断开weak_ptr
         timer.reset();
     }

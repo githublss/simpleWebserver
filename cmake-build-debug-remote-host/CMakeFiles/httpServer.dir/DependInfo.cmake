@@ -15,6 +15,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/ubuntu/clionProject/httpServer/Timer.cpp" "/home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/CMakeFiles/httpServer.dir/Timer.cpp.o"
   "/home/ubuntu/clionProject/httpServer/Util.cpp" "/home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/CMakeFiles/httpServer.dir/Util.cpp.o"
   "/home/ubuntu/clionProject/httpServer/main.cpp" "/home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/CMakeFiles/httpServer.dir/main.cpp.o"
+  "/home/ubuntu/clionProject/httpServer/test.cpp" "/home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/CMakeFiles/httpServer.dir/test.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
