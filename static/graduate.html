@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.div01{
+			background-color: #FFEB3B;
+			height:50px;
+			Color:#777;
+			display:inline-block;
+		}
+	
+	</style>
+	
+	<script type = 'text/javascript'>
+		window.onload = function(){
+			function timeleft(){
+				var oDiv = document.getElementById('time');
+			var now = new Date();
+			var future = new Date(2021,6,1,1,1,1);
+			var left = parseInt((future-now)/1000);
+			var day = parseInt((left/86400));
+			var hours = parseInt((left%86400)/3600);
+			var minute = parseInt((left%3600)/60);
+			var second = parseInt(left%60);
+
+			if (left<=0){
+				oDiv.innerHTML='活动结束';
+				window.location.href='http://www.baidu.com';
+			}
+			else
+				oDiv.innerHTML='距离毕业时间还有'+todou(day)+'天 '+todou(hours)+'小时'+todou(minute)+'分钟'+todou(second)+'秒';
+			}
+			timeleft();
+			setInterval(timeleft,1000);
+			function todou(int){
+				if(int<10)
+					return '0' + int;
+				else
+					return int;
+			}
+		}
+	
+	</script>
+</head>
+<body>
+	<div class='div01' id = 'time'></div>
+</body>
+</html>

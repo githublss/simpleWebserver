@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+	<meta charset="UTF-8">
+	<title>todolist</title>
+	<style type="text/css">
+		.list_con{
+			width:400px;
+			margin:50px auto 0;
+		}
+
+		.inputtxt{
+			width:350px;
+			height:30px;
+			border:1px solid #ccc;
+			padding:0px;
+			text-indent:10px;
+			
+		}
+
+		.inputbtn{
+			width:40px;
+			height:32px;
+			padding:0px;
+			border:1px solid #ccc;
+		}
+
+		.list{
+			margin:0;
+			padding:0;
+			list-style:none;
+			margin-top:20px;
+		}
+
+		.list li{
+			height:30px;
+			line-height:30px;
+			border-bottom:1px solid #ccc;
+		}
+
+		.list li span{
+			float:left;
+		}
+
+		.list li a{
+			float:right;
+			text-decoration:none;
+			margin:0 10px;
+		}
+	</style>
+
+<!--	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>-->
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.6.4/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			
+			$('#btn1').click(function(){
+				
+				var txt = $('#txt1').val();
+				$('#txt1').val('');
+				if(txt==''){
+					alert('输入不能为空');
+					return;
+				}
+				// 下面的href中如果不写javascript:;的话,老是会出现自动更新的现象.一旦出现提示窗口后就会到初试页面.
+				$li = $('<li><span>'+txt+'</span><a href="javascript:;" class="del">删除</a><a href="javascript:;" class="up">↑</a><a href="javascript:;" class="down">↓</a></li>');
+				// $li = $('<li><span>'+ txt +'</span><a href="javascript:;" class="up"> ↑ </a><a href="javascript:;" class="down"> ↓ </a><a href="javascript:;" class="del">删除</a></li>');
+				$li.appendTo('#list');
+			
+			});
+			
+			$('#list').delegate('a','click',function(){
+			
+				var handler = $(this).attr('class');
+				if(handler=='del'){
+					var jinggao = confirm('确定删除吗?');
+					if(jinggao==true)
+						$(this).parent().remove();
+					else
+						return;
+				};
+				if(handler=='up'){
+					if($(this).parent().prev().length==0){
+						alert('到顶了!');
+						return;
+					}
+					else
+						$(this).parent().insertBefore($(this).parent().prev());
+				};
+				if(handler=='down'){
+					if($(this).parent().next().length==0){
+						alert('到底了!');
+						return;
+					}
+					else
+						$(this).parent().insertAfter($(this).parent().next());
+				};
+			});
+			
+			
+		});
+		
+
+	</script>	
+</head>
+<body>
+
+	<div class="list_con">
+		<h2>To do list</h2>
+		<input type="text" name="" id="txt1" class="inputtxt">
+		<input type="button" name="" value="增加" id="btn1" class="inputbtn">
+		
+		<ul id="list" class="list">
+
+			<li><span>学习html</span><a href="javascript:;" class="up"> ↑ </a><a href="javascript:;" class="down"> ↓ </a><a href="javascript:;" class="del">删除</a></li>
+			<li><span>学习css</span><a href="javascript:;" class="up"> ↑ </a><a href="javascript:;" class="down"> ↓ </a><a href="javascript:;" class="del">删除</a></li>
+			<li><span>学习javascript</span><a href="javascript:;" class="up"> ↑ </a><a href="javascript:;" class="down"> ↓ </a><a href="javascript:;" class="del">删除</a></li>
+
+		</ul>
+
+	</div>
+</body>
+</html>

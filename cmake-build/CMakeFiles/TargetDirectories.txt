@@ -1,0 +1,3 @@
+/home/ubuntu/clionProject/httpServer/cmake-build/CMakeFiles/edit_cache.dir
+/home/ubuntu/clionProject/httpServer/cmake-build/CMakeFiles/rebuild_cache.dir
+/home/ubuntu/clionProject/httpServer/cmake-build/CMakeFiles/httpServer.dir

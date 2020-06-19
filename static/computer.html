@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>计算器</title>
+	<style>
+		
+	
+	</style>
+	<script>
+		window.onload = function(){
+			var oNum01 = document.getElementById('num01');
+			var oNum02 = document.getElementById('num02');
+			var oP = document.getElementById('opera');
+		
+			var oCom = document.getElementById('com');
+			oCom.onclick=computer;
+			function computer(){
+				
+				
+				var a = oNum01.value;
+				var b = oNum02.value;
+				var fuhao = oP.value;
+				if(a==''||b==''){
+					alert('输入不能为空');
+					return;
+				}
+				if(isNaN(a) || isNaN(b)){
+					alert('请输入数字');
+					return;
+				}
+				
+				switch(fuhao){
+					case '0': 
+						alert((parseFloat(a)*100+parseFloat(b)*100)/100);
+						break;
+					case '1': 
+						alert((parseFloat(a)*100-parseFloat(b)*100)/100);
+						break;
+					case '2': 
+						alert((parseFloat(a)*100*parseFloat(b)*100)/10000);
+						break;
+					case '3': 
+						alert(((parseFloat(a)*100)/(parseFloat(b)*100)));
+						break;
+					
+					}
+			}
+	
+		}
+	</script>
+</head>
+<body>
+	<input type="text" id='num01' placeholder='输入number1'>
+	<select name="operation" id="opera">
+		<option value="0">+</option>
+		<option value="1">-</option>
+		<option value="2">*</option>
+		<option value="3">/</option>
+	</select>
+	<input type="text" id='num02' placeholder='输入number2'>
+	<input type="button" value='计算' id='com'>
+</body>
+</html>

@@ -23,6 +23,7 @@ std::unordered_map<std::string, MimeType> mimeMap = {
         {".gz", "application/x-gzip"},
         {".tar", "application/x-tar"},
         {".css", "text/css"},
+        {".js","text/javascript"},
         {"", "text/plain"},
         {"default","text/plain"}
 };
