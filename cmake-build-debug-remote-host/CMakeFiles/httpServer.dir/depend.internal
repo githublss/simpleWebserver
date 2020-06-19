@@ -78,3 +78,6 @@ CMakeFiles/httpServer.dir/main.cpp.o
  /home/ubuntu/clionProject/httpServer/Timer.h
  /home/ubuntu/clionProject/httpServer/Util.h
  /home/ubuntu/clionProject/httpServer/main.cpp
+CMakeFiles/httpServer.dir/test.cpp.o
+ /home/ubuntu/clionProject/httpServer/Util.h
+ /home/ubuntu/clionProject/httpServer/test.cpp

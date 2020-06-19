@@ -82,13 +82,13 @@ HttpParse::LINE_STATE HttpParse::parse_line(char *buffer, int &checkedIndex, int
 // 对请求行进行解析
 HttpParse::HTTP_CODE
 HttpParse::parse_requestline(char *line, HttpParse::PARSE_STATE &parseState, HttpRequest &httpRequest) {
+    // 检测line中第一个空格或者\t，返回字符
     char *url = strpbrk(line," \t");
     if(!url){
         return BAD_REQUEST;
     }
     // 将method和url分隔开
     *(url++) = '\0';
-
     char *method = line;
     if(strcasecmp(method,"GET") == 0){
         httpRequest.method = HttpRequest::GET;
@@ -98,7 +98,7 @@ HttpParse::parse_requestline(char *line, HttpParse::PARSE_STATE &parseState, Htt
         httpRequest.method = HttpRequest::PUT;
     } else
         return BAD_REQUEST;
-
+    // url第一个不是空格或者\t的下标
     url += strspn(url," \t");
 
     char *version = strpbrk(url," \t");
@@ -112,9 +112,10 @@ HttpParse::parse_requestline(char *line, HttpParse::PARSE_STATE &parseState, Htt
         httpRequest.version = HttpRequest::HTTP_10;
     else
         return BAD_REQUEST;
-
+    // 判断utl地址是否包含域名信息，并处理
     if(strncasecmp(url,"http://",7) == 0){
         url += 7;
+        // 第一次出现字符/的位置
         url = strchr(url,'/');
     } else if (strncasecmp(url,"/",1) == 0){
         PASS;

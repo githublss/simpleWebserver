@@ -3,13 +3,14 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <cstring>
+//#include <mcheck.h>
 #include "Util.h"
 #include "Server.h"
 #include <queue>
 
 // 实现守护进程
 
-std::string basePath = "/home/ubuntu/clionProject/httpServer";
+std::string basePath = "..";
 
 void daemon_run(){
     int pid;
@@ -37,6 +38,8 @@ void daemon_run(){
     }
 }
 int main() {
+//    setenv("MALLOC_TRACE","output",1);
+//    mtrace();
     int ThreadNumber = 50;   // 默认线程数
     int port = 8080;          // 默认端口号
     std::string logPath = "./webserver.log";    // 默认日志路径
@@ -61,7 +64,7 @@ int main() {
     close(fd);
 
     if(check_base_path(basePath) < 0)
-        std::cout<<"设置的基本工作路径不正确,工作路径为绝对路径"<<endl;
+        std::cout<<"设置的基本工作路径不正确,工作路径为绝对路径,要使用相对路径请使用./"<<endl;
     {
         std::cout<<"************webServer 配置信息************"<<std::endl;
         std::cout<<"端口："<<port<<std::endl;
@@ -69,7 +72,7 @@ int main() {
         std::cout<<"日志目录："<<logPath<<std::endl;
     }
     handle_for_sigpipe();
-    HttpServer httpServer(port);
+    HttpServer httpServer(port,"0.0.0.0");
     httpServer.run(ThreadNumber,1024);
     return 0;
 }

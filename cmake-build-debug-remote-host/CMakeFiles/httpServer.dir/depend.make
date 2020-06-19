@@ -78,3 +78,6 @@ CMakeFiles/httpServer.dir/main.cpp.o: ../Timer.h
 CMakeFiles/httpServer.dir/main.cpp.o: ../Util.h
 CMakeFiles/httpServer.dir/main.cpp.o: ../main.cpp
 
+CMakeFiles/httpServer.dir/test.cpp.o: ../Util.h
+CMakeFiles/httpServer.dir/test.cpp.o: ../test.cpp
+

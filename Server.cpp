@@ -160,7 +160,7 @@ void HttpServer::send(HttpServer::httpData_ptr httpData, HttpServer::FileState f
 
     //将已确定的相应头信息写入到header中,末尾是否有格式空字符
     httpData->response->appendBuffer(header);
-    std::cout<<"相应文件路径为："<<httpData->response->getFilePath()<<endl;
+    std::cout<<"响应文件路径为："<<httpData->response->getFilePath()<<endl;
     if(fileState == FILE_NOT_FOUND){
         if(httpData->response->getFilePath() == std::string("/")){
             sprintf(header,"%sContent-length:%d\r\n\r\n",header,strlen(INDEX_PAGE));
@@ -210,8 +210,9 @@ HttpServer::FileState HttpServer::static_file(HttpServer::httpData_ptr httpData)
     char file[basePath.size() + strlen(httpData->response->getFilePath().c_str()) + 1];
     strcpy(file,basePath.c_str());
     strcat(file,httpData->response->getFilePath().c_str());
+    std::cout<<"+++"<<file<<std::endl;
     // 没有指明访问资源或文件不存在
-    if(httpData->response->getFilePath() == "/" || (stat(file,&fileStat) < 0)){
+    if(httpData->response->getFilePath() == "/" | (stat(file,&fileStat) < 0)){
         httpData->response->setMimeType(MimeType("text/html"));
         if(httpData->response->getFilePath() == "/"){
             httpData->response->setStatusCode(HttpResponse::OK);
@@ -219,6 +220,7 @@ HttpServer::FileState HttpServer::static_file(HttpServer::httpData_ptr httpData)
         }else{
             httpData->response->setStatusCode(HttpResponse::NOTFOUND);
             httpData->response->setStatusMsg("Not Found");
+            std::cout<<"Not Found error"<<std::endl;
         }
         return FILE_NOT_FOUND;
     }
@@ -233,6 +235,7 @@ HttpServer::FileState HttpServer::static_file(HttpServer::httpData_ptr httpData)
     httpData->response->setStatusCode(HttpResponse::OK);
     httpData->response->setStatusMsg("OK");
     httpData->response->setFilePath(file);
+    std::cout<<"+++"<<file<<std::endl;
     return FILE_OK;
 }
 

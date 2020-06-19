@@ -111,17 +111,18 @@ std::vector<std::shared_ptr<HttpData>> Epoll::poll(const ServerSocket &serverSoc
 void Epoll::handleConnection(const ServerSocket &serverSocket) {
     std::shared_ptr<ClientSocket> tempClient(new ClientSocket());
     int clientFd;
-    while((clientFd = serverSocket.accept(*tempClient)) > 0){
-        std::cout<<"new fd:"<<clientFd<<std::endl;
+//    clientFd = serverSocket.accept(*tempClient);
+    while((clientFd = serverSocket.accept(*tempClient)) > 0) {
+        std::cout << "new fd:" << clientFd << std::endl;
         int ret = setnonblocking(tempClient->fd);
         //TODO 没有设置成功就关闭的方法是不是有点不合适
-        if(ret < 0){
-            std::cout<<"setnonblocking error"<<std::endl;
+        if (ret < 0) {
+            std::cout << "setnonblocking error" << std::endl;
             tempClient->close();
             continue;
         }
         std::shared_ptr<HttpData> httpDataPtr(new HttpData());
-        httpDataPtr->request = std::shared_ptr<HttpRequest> (new HttpRequest());
+        httpDataPtr->request = std::shared_ptr<HttpRequest>(new HttpRequest());
         httpDataPtr->response = std::shared_ptr<HttpResponse>(new HttpResponse());
 
         std::shared_ptr<ClientSocket> clientSocketPtr(new ClientSocket());
@@ -130,8 +131,8 @@ void Epoll::handleConnection(const ServerSocket &serverSocket) {
         httpDataPtr->epoll_fd = serverSocket.epoll_fd;
 
         // 将一个连接文件描述符添加到epoll实例中
-        addfd(serverSocket.epoll_fd,clientSocketPtr->fd,DEFAULT_EVENTS,httpDataPtr);
-        timeManager.addTimer(httpDataPtr,TimeManager::DEFAULT_TIME_OUT);
+        addfd(serverSocket.epoll_fd, clientSocketPtr->fd, DEFAULT_EVENTS, httpDataPtr);
+        timeManager.addTimer(httpDataPtr, TimeManager::DEFAULT_TIME_OUT);
     }
     std::cout<<"已连接描述符已处理完完毕"<<clientFd<<std::endl;
 }

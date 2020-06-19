@@ -56,5 +56,5 @@ void TimeManager::handle_expire_event() {
         } else
             break;
     }
-    std::cout<<"#######过期事件处理完成######"<<std::endl;
+    std::cout<<"#######过期事件处理完成,now timerQueue.size:"<<timerQueue.size()<<std::endl;
 }

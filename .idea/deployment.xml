@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="Remote Host (126a325e-d5bc-4ece-844f-90f0e63c4a6e)">
+  <component name="PublishConfigData" serverName="Remote Host (126a325e-d5bc-4ece-844f-90f0e63c4a6e)" showNewOnSourceInSync="false" showNewOnTargetInSync="false">
     <serverData>
       <paths name="Remote Host (126a325e-d5bc-4ece-844f-90f0e63c4a6e)">
         <serverdata>
@@ -14,6 +14,5 @@
         </serverdata>
       </paths>
     </serverData>
-    <option name="myAutoUpload" value="ALWAYS" />
   </component>
 </project>
