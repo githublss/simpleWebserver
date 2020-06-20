@@ -24,7 +24,7 @@ void daemon_run(){
     }
     //子进程建立一个新会话，并且该进程成为session leader以及进程组的组长
     setsid();
-    chdir("/");
+//    chdir("/");
     int fd;
     fd = open("/dev/null",O_RDWR,0);
     // 标准输入输出重定向到空设备
@@ -51,7 +51,7 @@ int main() {
 
     // 创建守护进程
 //    if(daemon)
-//    daemon_run();
+    daemon_run();
     // 使用库函数daemon创建守护进程
 //    if(daemon(0,0) == -1){
 //        std::cout<<"daemon error"<<std::endl;
@@ -71,6 +71,9 @@ int main() {
         std::cout<<"线程："<<ThreadNumber<<std::endl;
         std::cout<<"日志目录："<<logPath<<std::endl;
     }
+    char *currentPath;
+    currentPath = getcwd(nullptr,0);
+    std::cout<<"当前工作路径为："<<currentPath<<std::endl;
     handle_for_sigpipe();
     HttpServer httpServer(port,"0.0.0.0");
     httpServer.run(ThreadNumber,1024);

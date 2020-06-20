@@ -3,7 +3,7 @@
 
 支持GET、HEAD方法处理静态资源，并发模型采用的单进程 Reactor 非阻塞方式运行。
 
-[运行实例](http://106.53.11.204:8080/)
+[测试运行实例](http://106.53.11.204:8080/)
 ### 使用
 ```
 mkdir cmake-build
@@ -19,6 +19,7 @@ make
 - 编译器：gcc 5.4
 
 ### 代码统计使用工具 cloc
+![QQ截图20200620161048](https://raw.githubusercontent.com/githublss/image/master/image/QQ%E6%88%AA%E5%9B%BE20200620161048.png)
 
 查看端口被占用情况：netstat -tlunp
 
@@ -32,3 +33,8 @@ Now:
 - 使用C++11封装的thread、mutex、condition_variable实现了线程的同步互斥
 
 Feature:
+- 完成日志系统
+
+参考：
+(A C++ High Performance Web Server)[https://github.com/linyacool/WebServer]
+(High Performance HTTP WebServer)[https://github.com/linw7/TKeed]
