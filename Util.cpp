@@ -74,3 +74,24 @@ int check_base_path(const string &basePath){
     }
     return 0;
 }
+// 非阻塞模式下，防止写入文件大于发送缓冲区，循环写入数据
+ssize_t writen(int fd,const void *vptr,size_t n){
+    size_t nleft=0;
+    ssize_t nwritten=0;
+    const char *ptr;
+    ptr = static_cast<const char *>(vptr);
+    nleft = n;
+    while (nleft > 0){
+        // 返回值为0时表示连接关闭
+        if((nwritten = ::write(fd,ptr,nleft)) <= 0){
+            if(nwritten < 0 && (errno == EINTR || errno == EWOULDBLOCK || errno == EAGAIN))
+                nwritten = 0;
+            else
+                return -1;
+        }
+
+        nleft -= nwritten;
+        ptr += nwritten;
+    }
+    return n;
+}

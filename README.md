@@ -34,7 +34,10 @@ Now:
 
 Feature:
 - 完成日志系统
+- 支持Cookie
+- 完善异常处理
 
 参考：
-(A C++ High Performance Web Server)[https://github.com/linyacool/WebServer]
-(High Performance HTTP WebServer)[https://github.com/linw7/TKeed]
+
+[A C++ High Performance Web Server](https://github.com/linyacool/WebServer)
+[High Performance HTTP WebServer](https://github.com/linw7/TKeed)

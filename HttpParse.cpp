@@ -126,6 +126,9 @@ HttpParse::parse_requestline(char *line, HttpParse::PARSE_STATE &parseState, Htt
         return BAD_REQUEST;
     }
     httpRequest.url = std::string(url);
+# ifdef _DEBUG_
+    std::cout<<"request url:"<<httpRequest.url<<endl;
+#endif
     parseState = PARSE_HEADER;
 
     return NO_REQUEST;
@@ -139,16 +142,21 @@ HttpParse::HTTP_CODE HttpParse::parse_headers(char *line, HttpParse::PARSE_STATE
         parseState = PARSE_BODY;
         return NO_REQUEST;
     }
-    // 设置的大一点防止溢出
-    char key[100],value[300];
+    // 设置的大一点防止溢出,通过qq访问时其USER-AGENT长度可以超过300
+    char key[100],value[600];
     //TODO value的获取可能有问题
     sscanf(line,"%[^:]:%[^:]",key,value);
+#ifdef _DEBUG_
+    std::cout<<key<<':'<<value<<endl;
+#endif
     decltype(HttpRequest::headerMap)::iterator it;
     std::string keys(key);
     std::transform(keys.begin(),keys.end(),keys.begin(),::toupper);
     std::string values(value);
     // 测试打印所有头信息
-//    std::cout<<trim(keys)<<':'<<trim(values)<<endl;
+#ifdef _DEBUG_
+    std::cout<<trim(keys)<<':'<<trim(values)<<endl;
+#endif
     if((it = HttpRequest::headerMap.find(trim(keys))) != (HttpRequest::headerMap.end())){
         request.headers.insert(std::make_pair(it->second,trim(values)));
     } else{

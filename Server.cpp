@@ -107,7 +107,12 @@ void HttpServer::do_request(std::shared_ptr<void> arg) {
             std::cout<<"connection closed by peer"<<std::endl;
             break;
         }
+        // 记录已经读取的字节数
         read_index += recv_data;
+#ifdef _DEBUG_
+        // 打印原生的请求
+        std::cout<<"=========\n"<<buffer<<"\n======="<<std::endl;
+#endif
         // 通过对请求内容解析，得到请求的状态
         HttpParse::HTTP_CODE requestCode = HttpParse::parse_content(buffer,check_index,read_index,parseState,startLine,*httpData->request);
         if(requestCode == HttpParse::NO_REQUEST){
@@ -200,7 +205,17 @@ void HttpServer::send(HttpServer::httpData_ptr httpData, HttpServer::FileState f
     ::send(httpData->clientSocket->fd,header,strlen(header),0);
     // 通过存储映射读取文件向客户端发送数据
     void *mapBuffer = mmap(NULL,fileStat.st_size,PROT_READ,MAP_PRIVATE,filefd,0);
-    ::send(httpData->clientSocket->fd,mapBuffer,fileStat.st_size,0);
+    int send_size = 0;
+    socklen_t optlen = sizeof(send_size);
+    getsockopt(httpData->clientSocket->fd,SOL_SOCKET,SO_SNDBUF,&send_size,&optlen);
+    std::cout<<"sendBufferSize is:"<<send_size<<endl;
+    long long int sendSize=0;
+    int startSize = 0;
+    // socket的默认发送缓冲区大小为45kb
+//    while(::send(httpData->clientSocket->fd,mapBuffer,fileStat.st_size,0) > 0){};
+    sendSize = writen(httpData->clientSocket->fd,mapBuffer,fileStat.st_size);
+//    sendSize = writen2(httpData->clientSocket->fd,mapBuffer);
+    std::cout<<"sendSize is:"<<sendSize<<endl;
     munmap(mapBuffer,fileStat.st_size);
     close(filefd);
     return;

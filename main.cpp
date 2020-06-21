@@ -40,7 +40,7 @@ void daemon_run(){
 int main() {
 //    setenv("MALLOC_TRACE","output",1);
 //    mtrace();
-    int ThreadNumber = 50;   // 默认线程数
+    int ThreadNumber = 6;   // 默认线程数
     int port = 8080;          // 默认端口号
     std::string logPath = "./webserver.log";    // 默认日志路径
 
@@ -51,7 +51,7 @@ int main() {
 
     // 创建守护进程
 //    if(daemon)
-    daemon_run();
+//    daemon_run();
     // 使用库函数daemon创建守护进程
 //    if(daemon(0,0) == -1){
 //        std::cout<<"daemon error"<<std::endl;

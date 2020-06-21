@@ -7,6 +7,7 @@
 
 #include "HttpData.h"
 #include "HttpRequest.h"
+#include "Util.h"
 
 #define CR '\r'
 #define LF '\n'
