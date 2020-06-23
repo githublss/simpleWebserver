@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <cstring>
+#include <getopt.h>
 //#include <mcheck.h>
 #include "Util.h"
 #include "Server.h"
@@ -37,21 +38,52 @@ void daemon_run(){
         close(fd);
     }
 }
-int main() {
+int main(int argc,char *argv[]) {
 //    setenv("MALLOC_TRACE","output",1);
 //    mtrace();
     int ThreadNumber = 6;   // 默认线程数
     int port = 8080;          // 默认端口号
     std::string logPath = "./webserver.log";    // 默认日志路径
-
+    bool isDaemon = false;
     int opt = 0;
-    const char *str = "t:l:p";
+    const char *str = "t:l:p:d";
 
     //TODO 添加用户自定义设置，先使用默认的配置
+    while ((opt = getopt(argc,argv,str)) != -1){
+        switch (opt){
+            case 't':{
+                ThreadNumber = atoi(optarg);
+                break;
+            }
+            case 'l':{
+                logPath = std::string(optarg);
+                if(logPath.size() < 2 || optarg[0] != '/'){
+                    cout<<"logPaht must start with /"<<endl;
+                    abort();
+                }
+                break;
+            }
+            case 'p':{
+                port = atoi(optarg);
+                break;
+            }
+            case 'd':{
+                isDaemon = true;
+                break;
+            }
+            case '?':{
+                cout<<"error option:"<<optopt<<endl;
+                cout<<"error opterr:"<<opterr<<endl;
+                break;
+            }
+            default:
+                break;
+        }
+    }
 
     // 创建守护进程
-//    if(daemon)
-//    daemon_run();
+    if(isDaemon)
+        daemon_run();
     // 使用库函数daemon创建守护进程
 //    if(daemon(0,0) == -1){
 //        std::cout<<"daemon error"<<std::endl;
