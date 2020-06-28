@@ -45,7 +45,7 @@ int Epoll::modfd(int epoll_fd, int fd, __uint32_t events, std::shared_ptr<HttpDa
     httpDataMap[fd] = httpData;
     int ret = ::epoll_ctl(epoll_fd,EPOLL_CTL_MOD,fd,&event);
     if(ret < 0){
-        std::cout<<"eopll add error"<<std::endl;
+        std::cout<<"eopll mod error"<<std::endl;
         httpDataMap[fd].reset();
         return -1;
     }
@@ -56,9 +56,9 @@ int Epoll::delfd(int epoll_fd, int fd, __uint32_t events) {
     epoll_event event;
     event.events = events;
     event.data.fd = fd;
-    int ret = ::epoll_ctl(epoll_fd,EPOLL_CTL_MOD,fd,&event);
+    int ret = ::epoll_ctl(epoll_fd,EPOLL_CTL_DEL,fd,&event);
     if(ret < 0){
-        std::cout<<"eopll add error"<<std::endl;
+        std::cout<<"eopll del error"<<std::endl;
         httpDataMap[fd].reset();
         return -1;
     }

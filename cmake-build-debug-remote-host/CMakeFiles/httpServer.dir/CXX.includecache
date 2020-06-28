@@ -57,6 +57,8 @@ HttpData.h
 /home/ubuntu/clionProject/httpServer/HttpData.h
 HttpRequest.h
 /home/ubuntu/clionProject/httpServer/HttpRequest.h
+Util.h
+/home/ubuntu/clionProject/httpServer/Util.h
 
 /home/ubuntu/clionProject/httpServer/HttpRequest.cpp
 HttpRequest.h
@@ -183,6 +185,8 @@ Util.h
 /home/ubuntu/clionProject/httpServer/Util.h
 
 /home/ubuntu/clionProject/httpServer/Util.h
+string
+-
 
 /home/ubuntu/clionProject/httpServer/main.cpp
 iostream
@@ -194,6 +198,8 @@ unistd.h
 fcntl.h
 -
 cstring
+-
+getopt.h
 -
 Util.h
 /home/ubuntu/clionProject/httpServer/Util.h

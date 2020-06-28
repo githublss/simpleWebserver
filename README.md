@@ -43,7 +43,11 @@ Feature:
 - 支持Cookie
 - 完善异常处理
 
+UML图：
+![QQ截图20200628162633](https://raw.githubusercontent.com/githublss/image/master/image/QQ%E6%88%AA%E5%9B%BE20200628162633.png)
+
 参考：
 
-[A C++ High Performance Web Server](https://github.com/linyacool/WebServer)
+[A C++ High Performance Web Server](https://github.com/linyacool/WebServer)  
+
 [High Performance HTTP WebServer](https://github.com/linw7/TKeed)

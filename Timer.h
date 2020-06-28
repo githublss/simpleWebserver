@@ -52,6 +52,7 @@ private:
     size_t expiredTime;             // 过期时间的时间点
     std::shared_ptr<HttpData> httpData;     // 关联的httpData
 };
+
 struct TimerCmp{
     bool operator()(std::shared_ptr<TimerNode> &a, std::shared_ptr<TimerNode> &b)const{
         return a->getExpireTime() > b->getExpireTime();

@@ -102,7 +102,7 @@ void HttpServer::do_request(std::shared_ptr<void> arg) {
             std::cout<<"reading failed"<<std::endl;
             return;
         }
-        // 无可用数据，或者对等方已经按序结束
+        // 无可用数据，或者对等方已经结束
         if(recv_data == 0){
             std::cout<<"connection closed by peer"<<std::endl;
             break;
@@ -114,14 +114,13 @@ void HttpServer::do_request(std::shared_ptr<void> arg) {
         std::cout<<"=========\n"<<buffer<<"\n======="<<std::endl;
 #endif
         // 通过对请求内容解析，得到请求的状态
-        HttpParse::HTTP_CODE requestCode = HttpParse::parse_content(buffer,check_index,read_index,parseState,startLine,*httpData->request);
+        HttpParse::HTTP_CODE requestCode = HttpParse::parse_content(buffer,check_index,read_index,
+                parseState,startLine,*httpData->request);
         if(requestCode == HttpParse::NO_REQUEST){
             std::cout<<"no request:wait...."<<endl;
             continue;
         }
-
         else if(requestCode == HttpParse::GET_REQUEST){
-//            std::unordered_map<HttpRequest::HTTP_HEADER, std::string, HttpRequest::EnumClassHash>::iterator it = httpData->request->headers.find(HttpRequest::Connection);
             auto it = httpData->request->headers.find(HttpRequest::Connection);
             if(it != httpData->request->headers.end()){
                 if(it->second == "keep-alive"){
@@ -140,7 +139,7 @@ void HttpServer::do_request(std::shared_ptr<void> arg) {
             std::cout<<"--------send success--------"<<std::endl;
             // 需要keep-Alive的进行设置添加timeNode
             if(httpData->response->isKeepAlive()){
-                //TODO 不进行修改会怎样
+                // addtimer方法可以将httpData与原来的的timeNode断开连接，并与新的timeNode建立连接
                 Epoll::modfd(httpData->epoll_fd,httpData->clientSocket->fd,Epoll::DEFAULT_EVENTS,httpData);
                 Epoll::timeManager.addTimer(httpData,TimeManager::DEFAULT_TIME_OUT);
             }
@@ -212,9 +211,7 @@ void HttpServer::send(HttpServer::httpData_ptr httpData, HttpServer::FileState f
     long long int sendSize=0;
     int startSize = 0;
     // socket的默认发送缓冲区大小为45kb
-//    while(::send(httpData->clientSocket->fd,mapBuffer,fileStat.st_size,0) > 0){};
     sendSize = writen(httpData->clientSocket->fd,mapBuffer,fileStat.st_size);
-//    sendSize = writen2(httpData->clientSocket->fd,mapBuffer);
     std::cout<<"sendSize is:"<<sendSize<<endl;
     munmap(mapBuffer,fileStat.st_size);
     close(filefd);

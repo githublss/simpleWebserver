@@ -1,0 +1,58 @@
+= Start
+@ /lib/x86_64-linux-gnu/libc.so.6:(__strdup+0x1a)[0x7f36efa3748a] + 0x17001e0 0xf
+@ /lib/x86_64-linux-gnu/libc.so.6:[0x7f36efa19cdd] + 0x1700fe0 0x228
+@ /lib/x86_64-linux-gnu/libc.so.6:(_IO_file_doallocate+0x55)[0x7f36efa191d5] + 0x1701210 0x1000
+@ /lib/x86_64-linux-gnu/libc.so.6:[0x7f36efa6a41c] + 0x1702220 0x146
+@ /lib/x86_64-linux-gnu/libc.so.6:(_IO_setb+0x4b)[0x7f36efa2754b] - 0x1701210
+@ /lib/x86_64-linux-gnu/libc.so.6:(fclose+0x103)[0x7f36efa19363] - 0x1700fe0
+@ /lib/x86_64-linux-gnu/libc.so.6:[0x7f36efa68c36] + 0x1700200 0x14
+@ /lib/x86_64-linux-gnu/libc.so.6:[0x7f36efa68bf3] + 0x1700220 0x14
+@ /lib/x86_64-linux-gnu/libc.so.6:[0x7f36efa68bf3] + 0x16ffeb0 0x14
+@ /lib/x86_64-linux-gnu/libc.so.6:(_IO_file_doallocate+0x55)[0x7f36efa191d5] + 0x1700fe0 0x400
+@ /lib/x86_64-linux-gnu/libc.so.6:(clearenv+0x5d)[0x7f36ef9e5e9d] - 0x1700b00
+@ /lib/x86_64-linux-gnu/libc.so.6:(tdestroy+0x4cf)[0x7f36efab091f] - 0x17001c0
+@ /lib/x86_64-linux-gnu/libc.so.6:[0x7f36efb2023c] - 0x16fff00
+@ /lib/x86_64-linux-gnu/libc.so.6:[0x7f36efb20314] - 0x1700fe0
+@ /lib/x86_64-linux-gnu/libc.so.6:[0x7f36efb203df] - 0x1700200
+@ /lib/x86_64-linux-gnu/libc.so.6:[0x7f36efb203df] - 0x1700220
+@ /lib/x86_64-linux-gnu/libc.so.6:[0x7f36efb203df] - 0x16ffeb0
+@ /lib/x86_64-linux-gnu/libc.so.6:[0x7f36efb203f3] - 0x17001e0
+@ /lib/x86_64-linux-gnu/libc.so.6:(__libc_freeres+0x58)[0x7f36efb203a8] - 0x1702220
+@ /home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/httpServer:[0x41db1e] - 0x1700a40
+@ /home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/httpServer:[0x41db1e] - 0x17009e0
+@ /home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/httpServer:[0x41db1e] - 0x1700820
+@ /home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/httpServer:[0x41db1e] - 0x17007c0
+@ /home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/httpServer:[0x41db1e] - 0x1700880
+@ /home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/httpServer:[0x41db1e] - 0x17006a0
+@ /home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/httpServer:[0x405d38] - 0x17005c0
+@ /home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/httpServer:[0x41db1e] - 0x1700560
+@ /home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/httpServer:[0x41db1e] - 0x1700760
+@ /home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/httpServer:[0x41db1e] - 0x1700500
+@ /home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/httpServer:[0x405d38] - 0x17009c0
+@ /home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/httpServer:[0x41db1e] - 0x1700960
+@ /home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/httpServer:[0x405d38] - 0x1700940
+@ /home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/httpServer:[0x41db1e] - 0x17008e0
+@ /home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/httpServer:[0x41db1e] - 0x17004a0
+@ /home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/httpServer:[0x41db1e] - 0x1700440
+@ /home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/httpServer:[0x41db1e] - 0x1700700
+@ /home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/httpServer:[0x41db1e] - 0x1700640
+@ /home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/httpServer:[0x405d38] - 0x1700420
+@ /home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/httpServer:[0x41db1e] - 0x17003c0
+@ /home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/httpServer:[0x41db1e] - 0x17005e0
+@ /home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/httpServer:[0x41db1e] - 0x1700360
+@ /home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/httpServer:[0x41db1e] - 0x1700aa0
+@ /home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/httpServer:[0x41db1e] - 0x1700300
+@ /home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/httpServer:[0x409638] - 0x1700240
+@ /home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/httpServer:[0x4181be] - 0x1700190
+@ /home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/httpServer:[0x41a63e] - 0x1700150
+@ /home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/httpServer:[0x41a63e] - 0x1700090
+@ /home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/httpServer:[0x41a63e] - 0x1700050
+@ /home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/httpServer:[0x41a63e] - 0x17000d0
+@ /home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/httpServer:[0x41a63e] - 0x1700010
+@ /home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/httpServer:[0x41a63e] - 0x16fffd0
+@ /home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/httpServer:[0x41a63e] - 0x1700110
+@ /home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/httpServer:[0x41a63e] - 0x16fff90
+@ /home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/httpServer:[0x409638] - 0x16fff30
+@ /home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/httpServer:[0x410a72] - 0x16ffca0
+@ /home/ubuntu/clionProject/httpServer/cmake-build-debug-remote-host/httpServer:[0x40fe5e] - 0x16ffc50
+@ /lib/x86_64-linux-gnu/libc.so.6:[0x7f36ef9e5ff8] - 0x16ffc20

@@ -18,7 +18,7 @@ void TimerNode::current_time() {
     current_msec = current.tv_sec * 1000 + current.tv_usec / 1000;
 }
 // 初始化，同时设置过期时间
-TimerNode::TimerNode(std::shared_ptr<HttpData> httpData, size_t timeout):deleted(false),httpData(httpData) {
+TimerNode::TimerNode(std::shared_ptr<HttpData> httpData, size_t timeout = 0):deleted(false),httpData(httpData) {
     current_time();
     expiredTime = current_msec + timeout;
 }
@@ -42,6 +42,7 @@ void TimeManager::addTimer(std::shared_ptr<HttpData> httpData, std::size_t timeo
     {
         lock_guard<std::mutex> guard(lock);
         timerQueue.push(timeNode);
+        // 通过调用setTimer函数将httpData与新创建的timeNode连接起来，自动与旧的timeNode断开连接
         httpData->setTimer(timeNode);
     }
 }
